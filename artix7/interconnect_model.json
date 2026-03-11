@@ -1,0 +1,60 @@
+{
+  "_comment": "Interconnect delay model for 7-series routing. Source: vivado-timing-re NNLS v3 fit.",
+  "part": "xc7a100tcsg324-1",
+  "speed_grade": "-1",
+  "magic_factor": 0.6875,
+  "wire_model": {
+    "_comment": "NNLS v3 coefficients. hop_delay = intrinsic + R_drive * (wire_cap_scaled + next_in_cap) + wire_res_scaled",
+    "slow_max": {
+      "vbrk_cap_scale": 1.1223,
+      "vbrk_res_scale": 0.0,
+      "lv_cap_scale": 0.2324,
+      "hclk_cap_scale": 0.0,
+      "hclk_res_scale": 0.173,
+      "other_cap_scale": 1.1157,
+      "per_route_ps": 15.3359
+    },
+    "_fit_stats": {
+      "training_samples": 96,
+      "validation_samples": 135,
+      "rms_ps": 2.89,
+      "max_error_ps": 4.76,
+      "pct_within_5ps": 100.0
+    }
+  },
+  "tcko_ps": {
+    "_comment": "Clock-to-output delay by source CLB type.",
+    "slow_max": {
+      "CLBLM_L": 340.0,
+      "CLBLM_R": 362.0,
+      "CLBLL_L": 340.0,
+      "CLBLL_R": 340.0
+    },
+    "fast_max": {
+      "CLBLM_L": 139.0,
+      "CLBLM_R": 147.0
+    }
+  },
+  "clb_lastmile_ps": {
+    "_comment": "INT-to-CLB wire delay included in SDF INTERCONNECT but not get_net_delays.",
+    "slow_max": {
+      "default": 205.4,
+      "CLBLM_R": 217.5
+    },
+    "fast_max": {
+      "default": 75.4,
+      "CLBLM_R": 125.5
+    },
+    "slow_min": {
+      "default": 165.4,
+      "CLBLM_R": 175.5
+    }
+  },
+  "wire_classes": {
+    "_comment": "Classification rules for applying correct scaling factors.",
+    "VBRK": "Tile type contains 'VBRK'",
+    "LV": "Wire speed_index == 664 (long vertical wires LV/LVB)",
+    "HCLK": "Tile type contains 'HCLK'",
+    "OTHER": "All other wires (CLB, INT, DSP, BRAM, etc.)"
+  }
+}

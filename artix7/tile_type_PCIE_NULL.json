@@ -1,8 +1,12 @@
 {
-    "pips": {},
-    "sites": [],
-    "tile_type": "PCIE_NULL",
-    "wires": {
-        "DUMMYFOO": null
+  "pips": {},
+  "sites": [],
+  "tile_type": "PCIE_NULL",
+  "wires": {
+    "DUMMYFOO": {
+      "cap": "0.0",
+      "res": "0.0",
+      "speed_index": 479
     }
+  }
 }

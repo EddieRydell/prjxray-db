@@ -1,16 +1,28 @@
 {
-    "pips": {},
-    "sites": [],
-    "tile_type": "BRKH_CMT",
-    "wires": {
-        "BRKH_CMT_FREQ_REF_NS0": null,
-        "BRKH_CMT_FREQ_REF_NS1": null,
-        "BRKH_CMT_FREQ_REF_NS2": null,
-        "BRKH_CMT_FREQ_REF_NS3": null,
-        "BRKH_CMT_PHASEREF0": null,
-        "BRKH_CMT_PHASEREF1": null,
-        "BRKH_CMT_PHASEREF_BELOW0": null,
-        "BRKH_CMT_PHASEREF_BELOW1": null,
-        "BRKH_CMT_PHYCTRL_SYNC_BB": null
+  "pips": {},
+  "sites": [],
+  "tile_type": "BRKH_CMT",
+  "wires": {
+    "BRKH_CMT_FREQ_REF_NS0": {
+      "cap": "0.0",
+      "res": "0.0",
+      "speed_index": 668
+    },
+    "BRKH_CMT_FREQ_REF_NS1": null,
+    "BRKH_CMT_FREQ_REF_NS2": null,
+    "BRKH_CMT_FREQ_REF_NS3": null,
+    "BRKH_CMT_PHASEREF0": {
+      "cap": "0.0",
+      "res": "0.0",
+      "speed_index": 669
+    },
+    "BRKH_CMT_PHASEREF1": null,
+    "BRKH_CMT_PHASEREF_BELOW0": null,
+    "BRKH_CMT_PHASEREF_BELOW1": null,
+    "BRKH_CMT_PHYCTRL_SYNC_BB": {
+      "cap": "0.0",
+      "res": "0.0",
+      "speed_index": 670
     }
+  }
 }
