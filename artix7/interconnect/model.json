@@ -1,0 +1,94 @@
+{
+  "version": "v7-refit",
+  "device_family": "artix7",
+  "speed_grade": "-1",
+  "corner": "slow_max",
+  "extraction_part": "xc7a100tcsg324-1",
+  "magic_factor": 0.6875,
+  "formula": "delay_ps = intrinsic_sum + sum(R*next_IN_CAP) + sum(R*wire_cap*scale[tg]) + sum(per_hop) + src_clb_offset + const",
+  "wire_cap_scale": {
+    "BRAM": 1.118704,
+    "BRKH": 1.219524,
+    "CLB_L": 1.255905,
+    "CLB_R": 1.100951,
+    "CMT": 1.319461,
+    "DSP": 1.040106,
+    "HCLK": 1.060319,
+    "INT": 0.220123,
+    "OTHER_TILE": 1.149838,
+    "VBRK": 0.757371
+  },
+  "per_hop_ps": {
+    "byp": 2.804,
+    "ew2": -0.164,
+    "ew4": 0.841,
+    "ghost": 0.842,
+    "lv": 0.001,
+    "ns1": 0.119,
+    "ns2": -0.354,
+    "ns6": 0.419,
+    "other": 0.37,
+    "wr1": 3.04
+  },
+  "src_clb_offset_ps": {
+    "CLBLM_L": 0.0,
+    "CLBLL_R": 4.47,
+    "CLBLM_R": -0.926
+  },
+  "constant_ps": 10.324,
+  "tile_group_members": {
+    "VBRK": [
+      "VBRK"
+    ],
+    "BRKH": [
+      "BRKH_INT"
+    ],
+    "CLB_L": [
+      "CLBLL_L",
+      "CLBLM_L"
+    ],
+    "CLB_R": [
+      "CLBLL_R",
+      "CLBLM_R"
+    ],
+    "BRAM": [
+      "BRAM_L",
+      "BRAM_R"
+    ],
+    "DSP": [
+      "DSP_L",
+      "DSP_R"
+    ],
+    "HCLK": [
+      "HCLK_L",
+      "HCLK_R"
+    ],
+    "INT": [
+      "INT_L",
+      "INT_R"
+    ],
+    "CMT": [
+      "CMT_PMV",
+      "CMT_PMV_L",
+      "CMT_TOP_L_UPPER_T",
+      "CMT_TOP_R_LOWER_B",
+      "CMT_FIFO_R",
+      "CMT_TOP_R_UPPER_T"
+    ],
+    "OTHER_TILE": [
+      "CFG_CENTER_BOT",
+      "CFG_CENTER_MID",
+      "CFG_CENTER_TOP",
+      "PCIE_BOT",
+      "VFRAME"
+    ]
+  },
+  "accuracy": {
+    "n_tests": 578,
+    "rms_ps": 2.813,
+    "max_error_ps": 9.43,
+    "loo_cv_rms_ps": 2.971,
+    "pct_within_5ps": 93.1,
+    "pct_within_10ps": 100.0
+  }
+}
