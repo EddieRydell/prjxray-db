@@ -1,0 +1,79 @@
+{
+  "family": "7series",
+  "sites": {
+    "SLICEL": {
+      "bels": [
+        "A6LUT", "B6LUT", "C6LUT", "D6LUT",
+        "AFF", "BFF", "CFF", "DFF",
+        "A5FF", "B5FF", "C5FF", "D5FF",
+        "CARRY4", "F7AMUX", "F7BMUX", "F8MUX"
+      ],
+      "cell_bel_map": {
+        "LUT1":   ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "LUT2":   ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "LUT3":   ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "LUT4":   ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "LUT5":   ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "LUT6":   ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "LUT6_2": ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "FDRE":   ["AFF", "BFF", "CFF", "DFF", "A5FF", "B5FF", "C5FF", "D5FF"],
+        "FDSE":   ["AFF", "BFF", "CFF", "DFF", "A5FF", "B5FF", "C5FF", "D5FF"],
+        "FDCE":   ["AFF", "BFF", "CFF", "DFF", "A5FF", "B5FF", "C5FF", "D5FF"],
+        "FDPE":   ["AFF", "BFF", "CFF", "DFF", "A5FF", "B5FF", "C5FF", "D5FF"],
+        "CARRY4": ["CARRY4"],
+        "MUXF7":  ["F7AMUX", "F7BMUX"],
+        "MUXF8":  ["F8MUX"]
+      },
+      "mutual_exclusions": [
+        ["A6LUT", "A5FF"],
+        ["B6LUT", "B5FF"],
+        ["C6LUT", "C5FF"],
+        ["D6LUT", "D5FF"]
+      ],
+      "bel_requires": {
+        "F7AMUX": ["A6LUT", "B6LUT"],
+        "F7BMUX": ["C6LUT", "D6LUT"],
+        "F8MUX":  ["F7AMUX", "F7BMUX"]
+      },
+      "shared_controls": ["CLK", "CE", "SR"],
+      "ff_sync_match": true,
+      "route_through_blocked_by": {
+        "A6LUT": "A",
+        "B6LUT": "B",
+        "C6LUT": "C",
+        "D6LUT": "D"
+      }
+    },
+    "SLICEM": {
+      "extends": "SLICEL",
+      "extra_cell_bel_map": {
+        "SRL16E":  ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "SRLC32E": ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "RAM32M":  ["A6LUT", "B6LUT", "C6LUT", "D6LUT"],
+        "RAM64M":  ["A6LUT", "B6LUT", "C6LUT", "D6LUT"]
+      }
+    },
+    "BUFGCTRL": {
+      "bels": ["BUFGCTRL"],
+      "cell_bel_map": {
+        "BUFG":    ["BUFGCTRL"],
+        "BUFGCTRL": ["BUFGCTRL"]
+      },
+      "required_pins": {
+        "BUFGCTRL": {
+          "vcc": ["S0", "CE0"],
+          "gnd": ["S1", "CE1", "I1", "IGNORE0", "IGNORE1"]
+        }
+      }
+    },
+    "IOB33": {
+      "bels": ["IOB"],
+      "cell_bel_map": {
+        "IBUF":  ["IOB"],
+        "IBUFG": ["IOB"],
+        "OBUF":  ["IOB"],
+        "OBUFT": ["IOB"]
+      }
+    }
+  }
+}

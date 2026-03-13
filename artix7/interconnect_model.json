@@ -1,25 +1,59 @@
 {
-  "_comment": "Interconnect delay model for 7-series routing. Source: vivado-timing-re NNLS v3 fit.",
+  "_comment": "Interconnect delay model for 7-series routing. Source: vivado-timing-re v7 fit (559 tests, 2.8ps RMS).",
   "part": "xc7a100tcsg324-1",
   "speed_grade": "-1",
   "magic_factor": 0.6875,
   "wire_model": {
-    "_comment": "NNLS v3 coefficients. hop_delay = intrinsic + R_drive * (wire_cap_scaled + next_in_cap) + wire_res_scaled",
+    "_comment": "V7 model: delay_ps = intrinsic + R*next_IN_CAP + R*wire_cap*scale[tg] + per_hop[wire_type] + src_clb_offset + constant",
     "slow_max": {
-      "vbrk_cap_scale": 1.1223,
-      "vbrk_res_scale": 0.0,
-      "lv_cap_scale": 0.2324,
-      "hclk_cap_scale": 0.0,
-      "hclk_res_scale": 0.173,
-      "other_cap_scale": 1.1157,
-      "per_route_ps": 15.3359
+      "tile_cap_scale": {
+        "BRAM": 1.12858,
+        "BRKH": 1.172206,
+        "CLB_L": 1.407946,
+        "CLB_R": 0.99591,
+        "CMT": 1.323694,
+        "DSP": 1.034685,
+        "HCLK": 1.017019,
+        "INT": 0.225824,
+        "OTHER_TILE": 1.16122,
+        "VBRK": 0.659158
+      },
+      "per_hop_ps": {
+        "byp": 6.592,
+        "ew2": -0.095,
+        "ew4": 0.81,
+        "ghost": -0.373,
+        "lv": 0.001,
+        "ns1": 0.208,
+        "ns2": -0.437,
+        "ns6": 0.465,
+        "other": 0.507,
+        "wr1": 2.835
+      },
+      "src_clb_offset_ps": {
+        "CLBLL_R": 4.437
+      },
+      "constant_ps": 7.715
     },
     "_fit_stats": {
-      "training_samples": 96,
-      "validation_samples": 135,
-      "rms_ps": 2.89,
-      "max_error_ps": 4.76,
-      "pct_within_5ps": 100.0
+      "training_samples": 559,
+      "rms_ps": 2.74,
+      "max_error_ps": 8.955,
+      "loo_cv_rms_ps": 3.023,
+      "pct_within_5ps": 94.2,
+      "pct_within_10ps": 100.0
+    },
+    "_tile_group_members": {
+      "VBRK": ["VBRK"],
+      "BRKH": ["BRKH_INT"],
+      "CLB_L": ["CLBLL_L", "CLBLM_L"],
+      "CLB_R": ["CLBLL_R", "CLBLM_R"],
+      "BRAM": ["BRAM_L", "BRAM_R"],
+      "DSP": ["DSP_L", "DSP_R"],
+      "HCLK": ["HCLK_L", "HCLK_R"],
+      "INT": ["INT_L", "INT_R"],
+      "CMT": ["CMT_PMV", "CMT_PMV_L", "CMT_TOP_L_UPPER_T", "CMT_TOP_R_LOWER_B"],
+      "OTHER_TILE": ["CFG_CENTER_BOT", "CFG_CENTER_MID", "CFG_CENTER_TOP", "PCIE_BOT", "VFRAME"]
     }
   },
   "tcko_ps": {
@@ -49,12 +83,5 @@
       "default": 165.4,
       "CLBLM_R": 175.5
     }
-  },
-  "wire_classes": {
-    "_comment": "Classification rules for applying correct scaling factors.",
-    "VBRK": "Tile type contains 'VBRK'",
-    "LV": "Wire speed_index == 664 (long vertical wires LV/LVB)",
-    "HCLK": "Tile type contains 'HCLK'",
-    "OTHER": "All other wires (CLB, INT, DSP, BRAM, etc.)"
   }
 }
